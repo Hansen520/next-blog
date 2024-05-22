@@ -6,16 +6,16 @@ import Link from 'next/link'
 import { allPosts } from 'contentlayer/generated'
 import dayjs from "dayjs";
 
-export const generateMetadata = ({ params }) => {
-  return { 
-    title: "博客列表",
-    description: "这是博客列表页面",
-    openGraph: {
-      title: '博客列表',
-      description: '这是博客列表页面'
-    }
-  }
-}
+// export const generateMetadata = ({ params }) => {
+//   return { 
+//     title: "博客列表",
+//     description: "这是博客列表页面",
+//     openGraph: {
+//       title: '博客列表',
+//       description: '这是博客列表页面'
+//     }
+//   }
+// }
 
 function PostCard(post) {
   return (
