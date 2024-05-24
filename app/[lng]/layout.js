@@ -8,6 +8,7 @@ import { ThemeProviders } from './theme-providers'
 import ThemeSwitch from '@/components/ThemeSwitch';
 import LangSwitch from '@/components/LangSwitch';
 import { dir } from 'i18next';
+import WebVitals from '@/components/WebVitals';
 
 export const metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -58,6 +59,7 @@ export default function RootLayout({ children, params: { lng } }) {
   return (
     <html lang={lng} dir={dir(lng)} suppressHydrationWarning>
       <body>
+        <WebVitals />
         <ThemeProviders>
           <header className="flex justify-end">
             <ThemeSwitch />
