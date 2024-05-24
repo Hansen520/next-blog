@@ -1,7 +1,13 @@
+/*
+ * @Date: 2024-05-22 10:12:28
+ * @Description: description
+ */
 import siteMetadata from '@/data/siteMetadata'
 import "./globals.css";
 import { ThemeProviders } from './theme-providers'
 import ThemeSwitch from '@/components/ThemeSwitch';
+import LangSwitch from '@/components/LangSwitch';
+import { dir } from 'i18next';
 
 export const metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -43,13 +49,19 @@ export const metadata = {
   },
 }
 
-export default function RootLayout({ children }) {
+// 添加静态路由
+export async function generateStaticParams() {
+  return siteMetadata.languages.map((lng) => ({lng}))
+}
+
+export default function RootLayout({ children, params: { lng } }) {
   return (
-    <html lang={siteMetadata.locale} suppressHydrationWarning>
+    <html lang={lng} dir={dir(lng)} suppressHydrationWarning>
       <body>
         <ThemeProviders>
           <header className="flex justify-end">
             <ThemeSwitch />
+            <LangSwitch />
           </header>
           {children}
         </ThemeProviders>
