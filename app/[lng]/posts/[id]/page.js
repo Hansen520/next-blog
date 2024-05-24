@@ -7,6 +7,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks'
 import { notFound } from 'next/navigation'
 import dayjs from "dayjs";
 import siteMetadata from '@/data/siteMetadata'
+import WaLine from '@/components/Waline';
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -76,6 +77,7 @@ const Page = ({ params }) => {
         </div>
         <MDXContent />
       </article>
+      <WaLine el='#waline' serverURL="https://waline.yueqings.cn/" />
     </>
   )
 }
